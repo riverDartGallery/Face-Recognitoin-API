@@ -7,6 +7,7 @@ const register = require('./controllers/register');
 const signin = require('./controllers/signin');
 const profile = require('./controllers/profile');
 const image = require('./controllers/image');
+const PORT = process.env.PORT || 5000
 
 const db = knex({
   client: 'pg',
@@ -32,6 +33,4 @@ app.post('/imageurl', (req, res) => { image.handleApiCall(req, res)})
 
 
 
-app.listen(process.env.PORT || 3000, function(){
-  console.log("Express server listening on port %d in %s mode", this.address().port, app.settings.env);
-});
+  .listen(PORT, () => console.log(`Listening on ${ PORT }`))

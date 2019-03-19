@@ -24,8 +24,8 @@ const app = express();
 app.use(cors())
 app.use(bodyParser.json());
 
-app.set('view engine', 'html')
-app.get('/', (req, res) => {res.render('is this working')})
+app.set('view engine', 'ejs')
+app.get('/', (req, res) => res.render('index'))
 app.post('/signin', (req, res) => { signin.handleSignin(req, res, db, bcrypt) })
 app.post('/register', (req, res) => { register.handleRegister(req, res, db, bcrypt) })
 app.get('/profile/:id', (req, res) => { profile.handleProfileGet(req, res, db)})
